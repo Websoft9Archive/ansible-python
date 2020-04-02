@@ -45,18 +45,14 @@ wget -N https://raw.githubusercontent.com/Websoft9/ansible-linux/master/scripts/
 1. 操作不慎或网络发生变化，可能会导致SSH连接被中断，安装就会失败，此时请重新安装
 2. 安装缓慢、停滞不前或无故中断，主要是网络不通（或网速太慢）导致的下载问题，此时请重新安装
 
-多种原因导致无法顺利安装，请使用我们在公有云上发布的 [Redis 镜像](https://apps.websoft9.com/redis) 的部署方式
+多种原因导致无法顺利安装，请使用我们在公有云上发布的 [Python&Django 镜像](https://apps.websoft9.com/python) 的部署方式
 
 
 ## 文档
 
-文档链接：https://support.websoft9.com/docs/redis/zh
+文档链接：https://support.websoft9.com/docs/python/zh
 
 ## FAQ
 
 - 命令脚本部署与镜像部署有什么区别？请参考：[镜像部署-vs-脚本部署](https://support.websoft9.com/docs/faq/zh/bz-product.html#镜像部署-vs-脚本部署)
 - 本项目支持在 Ansible Tower 上运行吗？支持
-
-## To do
-
-* 增加可选的GUI工具 redisinsight
