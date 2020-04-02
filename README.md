@@ -1,7 +1,7 @@
 
-# Redis 自动化安装与部署
+# Python&Django 自动化安装与部署
 
-本项目是由 [Websoft9](https://www.websoft9.com) 研发的 [Redis](https://redis.io/) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Redis，让原本复杂的安装过程变得没有任何技术门槛。  
+本项目是由 [Websoft9](https://www.websoft9.com) 研发的 **Python&Django运行环境** 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 **Django**，让原本复杂的安装过程变得没有任何技术门槛。  
 
 本项目是开源项目，采用 LGPL3.0 开源协议。
 
@@ -11,46 +11,22 @@
 
 | 条件       | 详情       | 备注  |
 | ------------ | ------------ | ----- |
-| 操作系统       | CentOS7.x, Ubuntu18.04, Amazon Linux2       |    |
-| 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 |  |
-| 私有云|  KVM, VMware, VirtualBox, OpenStack |  |
+| 操作系统       | CentOS7.x, Amazon Linux2       |  可选  |
+| 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 | 可选 |
+| 私有云|  KVM, VMware, VirtualBox, OpenStack | 可选 |
 | 服务器配置 | 最低1核1G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
 
 ## 组件
 
-包含的核心组件为：可选 Redis2.8.24/3.0.7/3.2.13/4.0.14/5.0.7/stable 多个版本
+包含的核心组件为：Python,Django,Nginx,MySQL（版本可选）,Redis等  
 
 更多请见[参数表](/docs/zh/stack-components.md)
 
-## 本项目安装的是 Redis 最新版吗？
+## 本项目安装的是 Python&Django 最新版吗？
 
-本项目是下载[Redis源码](http://download.redis.io/releases/)，再通过编译安装。 启动安装后，安装过程会提示用户选择一个Redis版本。
+本项目通过pip安装，能够保证安装之时版本最新。  
 
-查看 [redis.yml](/redis.yml) 文件中版本选择的内容，来查看和维护具体的详细版本号
-
-```
-  vars_prompt:
-    - name: 'redis_version_number'
-      prompt: "\nPlease choose the number for Redis version [ 1/2/3/4/5/6 ] \n\n
-      1: Redis2.8.24\n
-      2: Redis3.0.7\n
-      3: Redis3.2.13\n
-      4: Redis4.0.14\n
-      5: Redis5.0.7\n
-      6: Redis-Latest\n"
-      private: no
-      default: 6
-  vars:
-    temp_ver:
-      '1': '2.8.24'
-      '2': '3.0.7'
-      '3': '3.2.13'
-      '4': '4.0.14'
-      '5': '5.0.7'
-      '6': 'stable'
-```
-
-Redis-Latest 是官方发布的最新Stable版本，但还没有形成正式的发行版  
+查看 [python.yml](/python.yml) 文件中版本选择的内容，来查看和维护具体的详细版本号  
 
 我们会定期检查版本准确性，并增加官方最新的stable版本，以保证用户可以顺利安装所需的Redis版本。
 
@@ -59,7 +35,7 @@ Redis-Latest 是官方发布的最新Stable版本，但还没有形成正式的�
 以 root 用户登录 Linux，运行下面的**一键自动化安装命令**即可启动自动化部署。若没有 root 用户，请以其他用户登录 Linux 后运行 `sudo su -` 命令提升为 root 权限，然后再运行下面的脚本。
 
 ```
-wget -N https://raw.githubusercontent.com/Websoft9/linux/master/ansible_script/install.sh ; bash install.sh repository=redis
+wget -N https://raw.githubusercontent.com/Websoft9/ansible-linux/master/scripts/install.sh; bash install.sh -r python
 ```
 
 脚本后启动，就开始了自动化安装，必要时需要用户做出交互式选择，然后耐心等待直至安装成功。
