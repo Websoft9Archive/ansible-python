@@ -1,5 +1,5 @@
 w9panel_webs: "nginx" 
-w9panel_set_infrastructure: "Django runtime" 
+w9panel_set_infrastructure: "Python runtime" 
 w9panel_set_apps: 
   - Django
 
