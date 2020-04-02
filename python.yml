@@ -1,0 +1,40 @@
+---
+- name: Python&Django
+  hosts: all
+  become: yes
+  become_method: sudo
+
+  vars_files:
+    - vars/main.yml
+
+  vars_prompt:
+    - name: 'mysql_selection'
+      prompt: "\nPlease choose the number for MySQL version [ 1/2/3/4] \n\n
+      1: MySQL5.5(only for CentOS7.x, AmazonLinux)\n
+      2: MySQL5.6(only for CentOS7.x, AmazonLinux, Ubuntu16.04 )\n
+      3: MySQL5.7\n
+      4: MySQL8.0\n"
+      private: no
+      default: 3
+
+  vars:
+    mysql_select:
+      '1': '5.5'
+      '2': '5.6'
+      '3': '5.7'
+      '4': '8.0'
+    mysql_version: "{{mysql_select[mysql_selection]}}" 
+
+  roles:
+  - { role: role_common , tags: "role_common"} 
+  - { role: role_python , tags: "role_python"} 
+  - { role: role_nginx , tags: "role_nginx"} 
+  - { role: role_uwsgi , tags: "role_uwsgi"} 
+  - { role: role_mysql , tags: "role_mysql"}
+  - { role: role_redis , tags: "role_redis"}
+  - { role: role_python_apps , tags: "role_python_apps"}
+  - { role: role_9panel , tags: "9panel"}
+  - { role: role_docker , tags: "role_docker"} 
+  - { role: role_init_password , tags: "role_init_password"} 
+  - { role: role_preend , tags: "role_preend"} 
+  - { role: role_end , tags: "role_end"} 
