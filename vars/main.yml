@@ -8,8 +8,7 @@ nginx_certbot: True
 nginx_appname: "{{python_applications}}"
 nginx_vhost_mode: "reverse"
 
-# install nodejs applications
-python_apps_name: "{{python_applications}}"
+python_applications: "{{python_applications}}"
 
 # MySQL 版本和默认密码
 mysql_version: "5.7"       
