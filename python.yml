@@ -1,11 +1,46 @@
 ---
-- name: Python&Django
+- name: Python
   hosts: all
   become: yes
   become_method: sudo
 
   vars_files:
     - vars/main.yml
+  
+  vars_prompt:
+    - name: 'apps_selection'
+      prompt: "\nDo you want to install python application? [ 1/2/3/4] \n\n
+      0: Not install any application\n
+      1: ansible\n
+      2: Django\n
+      3: tensorflow\n"
+      private: no
+      default: 0
+
+  vars:
+    apps_select:
+      '0': False
+      '1': 'ansible'
+      '2': 'django'
+      '3': 'tensorflow'
+    apps_port:
+       '0': ''
+       '1': ''
+       '2': '8000'
+       '3': '6006'
+   
+    python_applications:
+      - "{{apps_select[apps_selection]}}"
+    python_applications_port:
+      - "{{apps_port[apps_selection]}}"
+
+  pre_tasks:
+
+    - debug:
+        msg: your application is {{python_applications}} 
+    - set_fact:
+        python_applications: []
+      when: not apps_select[apps_selection] 
 
   vars_prompt:
     - name: 'mysql_selection'
@@ -32,7 +67,7 @@
   - { role: role_uwsgi , tags: "role_uwsgi"} 
   - { role: role_mysql , tags: "role_mysql"}
   - { role: role_redis , tags: "role_redis"}
-  - { role: role_python_apps , tags: "role_python_apps"}
+  - { role: role_python , tags: "role_python"}
   - { role: role_9panel , tags: "9panel"}
   - { role: role_docker , tags: "role_docker"} 
   - { role: role_init , tags: "role_init"} 
