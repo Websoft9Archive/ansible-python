@@ -1,25 +1,15 @@
 # FAQ
 
-#### Python 是否支持多语言？
+#### Python 运行环境中是否支持多个 Python 版本？
 
-支持
+除了操作系统自带的 Python2 之外，默认安装了 Python3.x 中的版本之一。  
+用户可以自由安装更多的 Python3.x 版本，然后使用虚拟隔离环境，可以方便的安装应用而互不影响。
 
 #### 本项目中 Python 采用何种安装方式？
 
-采用 rpm/deb 包的安装方式
+采用 RPM/Deb 包的安装方式
 
-#### 如何以调试模式启动Python服务？
-
-```
-systemctl stop python-server
-python-server console
-```
-
-#### 是否可以通过命令行修改Python后台密码？
-
-可以，`pythonctl change_password  admin newpassword`
-
-#### 如果没有域名是否可以部署 Python？
+#### 如果没有域名是否可以部署 Python 应用？
 
 可以，访问`http://服务器公网IP` 即可
 
@@ -31,13 +21,9 @@ python-server console
 
 有，内置phpMyAdmin，访问地址：*http://服务器公网IP:9090*
 
-#### 如何禁止外界访问phpMyAdmin？
-
-连接服务器，编辑 [phpMyAdmin 配置文件](/zh/stack-components.md#phpmyadmin)，将其中的 `Require all granted` 更改为 `Require ip 192.160.1.0`，然后重启 Apache 服务
-
 #### 是否可以修改Python的源码路径？
 
-不可以
+可以
 
 #### 如何修改上传的文件权限?
 
