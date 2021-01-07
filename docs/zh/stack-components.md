@@ -1,63 +1,102 @@
+---
+sidebarDepth: 3
+---
+
 # 参数
 
-## 组件及路径
+Python 预装包包含 Python 运行所需一序列支撑软件（简称为“组件”），下面列出主要组件名称、安装路径、配置文件地址、端口、版本等重要的信息。
 
-Metabase部署包中不仅仅只有Metabase本身，还包含一序列支持Metabase运行所需的其他软件（这里称之为组件），下面列出主要组件名称、安装路径、配置文件地址等重要的信息：
+## 路径
 
-### Metabase
+### Python
 
-Metabase安装目录: /data/wwwroot/metabase  
-Metabase配置文件: /data/wwwroot/metabase/ccc.ii
+除了 Python3 之外，预装包中还安装了 Virtualenv, pip 等常用的 Python 工具。
 
-> Metabase配置文件中包含数据库连接信息，更改了MySQL数据库账号密码，此处也需要对应修改
+Python 应用目录： */data/wwwroot*  
+Python 安装目录： */data/python*  
+Python 日志目录： */data/logs/python*  
 
-### Java
-安装路径
-配置路径
-日志路径
+> 操作系统官方默认自带 Python2 
 
-### Tomcat
-Apache Vhost Configuration File: _/etc/httpd/conf.d/vhost.conf_  
-Apache Configuration directory: _/etc/httpd/conf.d_  
-Apache Log Files: _/var/log/httpd_
+### uWSGI
 
+uWSGI 配置文件： */etc/uwsgi.ini*  
+uWSGI 目录： */etc/uwsgi.d*  
+
+### Django
+
+#### Linux
+
+Django 安装目录： */data/wwwroot/django*  
+
+#### Windows
+
+采用 [Bitnami Django](https://bitnami.com/stack/django) 安装包制作而成。  
+
+Django 安装目录： *C:\websoft9\django*  
+Django 安装目录： *C:\websoft9\django\apache2\htdocs*  
 
 ### Nginx
-Apache Vhost Configuration File: _/etc/httpd/conf.d/vhost.conf_  
-Apache Configuration directory: _/etc/httpd/conf.d_  
-Apache Log Files: _/var/log/httpd_
 
-### MYSQL
-Database install directory: /usr/local/mysql  
-Database data directory: /data/mysql  
-Database Configuration File: /etc/my.cnf  
-MySQL Management URL: _http://Internet IP/phpmyadmin_
+Nginx 虚拟主机配置文件：*/etc/nginx/conf.d/default.conf*  
+Nginx 主配置文件： */etc/nginx/nginx.conf*  
+Nginx 日志文件： */var/log/nginx*  
+Nginx 伪静态规则目录： */etc/nginx/conf.d/rewrite*
 
-### Redis
-Redis configuration file: _/etc/redis.conf_  
-Redis data directory: _/var/lib/redis_
+#### MySQL
+
+MySQL 安装路径: */usr/local/mysql*  
+MySQL 数据文件 */data/mysql*  
+MySQL 配置文件: */etc/my.cnf*  
+
+MySQL 可视化管理参考 [MySQL 管理](/zh/admin-mysql.md) 章节。
+
+### phpMyAdmin
+
+phpMyAdmin 是一款可视化 MySQL 管理工具，在本项目中它基于 Docker 安装。  
+
+phpMyAdmin directory：*/data/apps/phpmyadmin*  
+phpMyAdmin docker compose file：*/data/apps/phpmyadmin/docker-compose.yml* 
+
+### Docker
+
+Docker 根目录: */var/lib/docker*  
+Docker 镜像目录: */var/lib/docker/image*   
+Docker daemon.json 文件：默认没有创建，请到 */etc/docker* 目录下根据需要自行创建   
 
 ## 端口号
 
-下面是您在使用本镜像过程中，需要用到的端口号，请通过云控制台安全组进行设置
+在云服务器中，通过 **[安全组设置](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** 来控制（开启或关闭）端口是否可以被外部访问。 
+
+通过命令`netstat -tunlp` 看查看相关端口，下面列出可能要用到的端口：
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| MySQL | 3306 | 远程连接MySQL | 可选 |
-| HTTP | 80 | 通过http访问Metabase | 必须 |
-| HTTPS | 443 | 通过https访问Metabase | 可选 |
-| phpMyAdmin on Docker | 9090 | 可视化管理MySQL | 可选 |
+| TCP | 8000 | 通过 HTTP 直接访问 Django 演示页面 | 可选 |
+| TCP | 80 | 通过 HTTP 直接访问 Python 应用 | 必选 |
+| TCP | 443 | 通过 HTTPS 直接访问 Python 应用 | 可选 |
 
 ## 版本号
 
-组件对应的基本版本号可以通过云市场商品页面查看，但部署到您的服务器之后，版本会有一定的升级，故更为精准的版本请通过在服务器上运行命令查看：
+组件版本号可以通过云市场商品页面查看。但部署到您的服务器之后，组件会自动进行更新导致版本号有一定的变化，故精准的版本号请通过在服务器上运行命令查看：
 
 ```shell
-# Tomcat version
+# Check all components version
+sudo cat /data/logs/install_version.txt
 
-# Nginx version
+# Linux Version
+lsb_release -a
+
+# Nginx  Version
+nginx -V
+
+# Python version
+python3 -V
+python -V
+
+# Docker Version
+docker -v
 
 # MySQL version
-
-# Java Version
+mysql -V
 ```
