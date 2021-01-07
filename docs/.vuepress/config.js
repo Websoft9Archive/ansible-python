@@ -13,12 +13,12 @@ head: [
 locales: {
     '/': {
       lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
-      title: 'Python Runtime Administrator Guide',
+      title: 'Python Runtime Guide',
       description: 'You can get the Installation of Image,Administrator,Configuration of the Python from this documentation.'
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: 'Python Runtime 管理员手册',
+      title: 'Python Runtime 手册',
       description: '本文档由 Websoft9 公司提供，用于指导用户学习 Python 的安装部署与基本运维技术，包括：部署、初始化安装、环境配置、HTTPS、SMTP、备份升级和连接云服务器操作等基本操作。'
     }
 },

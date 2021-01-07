@@ -1,11 +1,19 @@
 # FAQ
 
-#### How can I enable the debug mode of Python service?
+#### What's default Character Encoding for Python
 
-```
-systemctl stop python-server
-python-server console
-```
+For python2.x, default encoding is ASCII   
+For python3.x, default encoding is UTF-8  
+
+#### Python2 or Python3?
+
+The use of Python 3 is highly preferred over Python 2. Consider upgrading your applications and infrastructure if you find yourself still using Python 2 in production today. If you are using Python 3, congratulations — you are indeed a person of excellent taste. —Kenneth Reitz
+
+#### How Python run?
+
+In a CPython interpreter, bytecode is fed to PVM (Python Virtual Machine) which is responsible for running your code.
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/python-interpreter-websoft9.png)
+
 
 #### Can I reset password of Python by command?
 

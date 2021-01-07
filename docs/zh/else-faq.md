@@ -5,6 +5,35 @@
 除了操作系统自带的 Python2 之外，默认安装了 Python3.x 中的版本之一。  
 用户可以自由安装更多的 Python3.x 版本，然后使用虚拟隔离环境，可以方便的安装应用而互不影响。
 
+#### 终端中输入 `python` 命令为何显示的版本是 2.7？
+
+部分云平台默认已经安装 Python2，且设置为默认版本。
+
+#### Python 默认字符编码是什么？
+
+For python2.x, default encoding is ASCII   
+For python3.x, default encoding is UTF-8  
+
+#### Python 有哪些解释器？
+
+| **Implementation** | **Virtual Machine**        | **Compatible Language** |
+| ------------------ | -------------------------- | --------------------------- |
+| [CPython](http://www.python.org/) (default)  | CPython VM                 | C                           |
+| [Jython](https://www.jython.org/)             | JVM                        | Java                        |
+| [IronPython](http://ironpython.net/)         | CLR                        | C#                          |
+| Brython            | Javascript engine(e.g. V8) | JavaScript                  |
+| RubyPython         | Ruby VM                    | Ruby                        |
+| [PyPy](http://pypy.org)               | PyPy Executable            | JIT                         |
+| [PythonNet](http://pythonnet.github.io/)          | PythonNet Executable            | .NET                         |
+
+> 其中 CPython 是官方默认的解释器。
+
+#### Python 解释器是如何工作的？
+
+In a CPython interpreter, bytecode is fed to PVM (Python Virtual Machine) which is responsible for running your code.
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/python-interpreter-websoft9.png)
+
 #### 本项目中 Python 采用何种安装方式？
 
 采用 RPM/Deb 包的安装方式

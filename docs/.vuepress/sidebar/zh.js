@@ -13,7 +13,7 @@ module.exports = [
   },
 
   {
-    title: '热门框架',
+    title: '使用',
     collapsable: false,
     children: [
       '/zh/solution-study',
@@ -51,6 +51,7 @@ module.exports = [
     children: [
       '/zh/else-faq',
       '/zh/else-troubleshooting',
+      '/zh/else-glossary',
       '/zh/else-reference',
     ]
   },
