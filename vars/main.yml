@@ -1,14 +1,14 @@
 w9panel_webs: "nginx" 
 w9panel_set_infrastructure: "Python runtime" 
-w9panel_set_apps: "{{python_applications}}"
+w9panel_set_apps: "{{python_applications_select}}"
 
 # link node.js
 nginx_reverse_proxy_port: "{{python_applications_port}}"
 nginx_certbot: True
-nginx_appname: "{{python_applications}}"
+nginx_appname: "{{python_applications_select}}"
 nginx_vhost_mode: "reverse"
 
-python_applications: "{{python_applications}}"
+python_applications: "{{python_applications_select}}"
 
 # MySQL 版本和默认密码
 mysql_version: "5.7"       
