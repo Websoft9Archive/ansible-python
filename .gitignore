@@ -1,5 +1,6 @@
 *.retry
 /.vscode
+/docs/node_modules
 hosts
 node_modules
 test.yml
