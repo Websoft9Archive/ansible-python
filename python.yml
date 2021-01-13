@@ -77,9 +77,9 @@
   - { role: role_cloud, tags: "role_cloud"} 
   - { role: role_nginx , tags: "role_nginx"}
   - { role: role_uwsgi , tags: "role_uwsgi"} 
+  - { role: role_python , tags: "role_python"}
   - { role: role_mysql , tags: "role_mysql"}
   - { role: role_redis , tags: "role_redis"}
-  - { role: role_python , tags: "role_python"}
   - { role: role_9panel , tags: "9panel"}
   - { role: role_docker , tags: "role_docker"} 
   - { role: role_init , tags: "role_init"} 
