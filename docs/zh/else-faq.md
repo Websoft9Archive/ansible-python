@@ -14,6 +14,10 @@
 For python2.x, default encoding is ASCII   
 For python3.x, default encoding is UTF-8  
 
+#### Python 包是否可以被编译成二进制文件？
+
+可以。建议使用 pyinstaller 或 cpython 这两种工具之一
+
 #### Python 有哪些解释器？
 
 | **Implementation** | **Virtual Machine**        | **Compatible Language** |

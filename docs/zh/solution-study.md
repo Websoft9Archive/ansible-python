@@ -38,6 +38,21 @@ apt install python3
 
 源码安装相对在线安装会更为复杂，建议初学者通过采用在线安装方式。
 
+## 原理
+
+### Python 解释器
+
+Python 程序的是如何运行的可以用下面的图精准的解释：
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/python-interpreter-websoft9.png)
+
+从图中可见 Interpreter 是 Python 最重要的内核之一，它具有编译器和虚拟机两方面的功能。
+
+* 编译器：词法分析，语法解释，将 Python 代码编译成字节码（一种类似汇编的代码）
+* 虚拟机：模仿可执行文件的入栈出栈调用顺序执行 Python 程序
+
+
+
 ## 配置文件
 
 ## Web 服务
