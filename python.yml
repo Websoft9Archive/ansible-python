@@ -65,7 +65,7 @@
     python_applications_select: "{{apps_select[apps_selection]}}"
 
     python_applications_port: "{{apps_port[apps_selection]}}"
-
+    
   pre_tasks:
     - debug: var=python_applications_select
     - set_fact:
