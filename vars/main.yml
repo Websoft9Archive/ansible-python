@@ -23,6 +23,6 @@ preend_certbot: True
 
 # 初始化 MySQL 
 init_db: 
-    mysql:
-      user: root
-      password: "123456"  
+  mysql:
+    admin: root
+    password: "123456"
