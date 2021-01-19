@@ -24,16 +24,7 @@
       3: tensorflow\n"
       private: no
       default: 0
-
-    - name: 'mysql_selection'
-      prompt: "\nPlease choose the number for MySQL version [ 1/2/3/4] \n\n
-      1: MySQL5.5(only for CentOS7.x, AmazonLinux)\n
-      2: MySQL5.6(only for CentOS7.x, AmazonLinux, Ubuntu16.04 )\n
-      3: MySQL5.7\n
-      4: MySQL8.0\n"
-      private: no
-      default: 3
-
+      
   vars:
     python_select:
       '1': '3.6'
@@ -52,12 +43,6 @@
        '2': '8000'
        '3': '6006'
 
-    mysql_select:
-      '1': '5.5'
-      '2': '5.6'
-      '3': '5.7'
-      '4': '8.0'
-
     python_version: "{{python_select[python_selection]}}"
 
     mysql_version: "{{mysql_select[mysql_selection]}}" 
@@ -65,7 +50,9 @@
     python_applications_select: "{{apps_select[apps_selection]}}"
 
     python_applications_port: "{{apps_port[apps_selection]}}"
-    
+
+    python_mysql_select: "{{ (python_applications_select == 'django') | ternary(True,False) }}"
+
   pre_tasks:
     - debug: var=python_applications_select
     - set_fact:
@@ -77,7 +64,7 @@
   - { role: role_cloud, tags: "role_cloud"} 
   - { role: role_nginx , tags: "role_nginx"}
   - { role: role_python , tags: "role_python"}
-  - { role: role_mysql , tags: "role_mysql"}
+  - { role: role_mysql , tags: "role_mysql",when python_mysql_select == "True"}
   - { role: role_redis , tags: "role_redis"}
   - { role: role_9panel , tags: "9panel"}
   - { role: role_docker , tags: "role_docker"} 
