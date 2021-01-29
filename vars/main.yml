@@ -6,7 +6,6 @@ w9panel_set_apps: "{{python_applications_select}}"
 nginx_reverse_proxy_port: "{{python_applications_port}}"
 nginx_certbot: True
 nginx_appname: "{{python_applications_select}}"
-nginx_vhost_mode: "reverse"
 
 python_applications: "{{python_applications_select}}"
 
