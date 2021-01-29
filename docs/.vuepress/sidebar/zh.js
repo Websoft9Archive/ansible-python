@@ -13,10 +13,11 @@ module.exports = [
   },
 
   {
-    title: '使用',
+    title: '架构与应用',
     collapsable: false,
     children: [
-      '/zh/solution-study',
+      '/zh/solution-arch',
+      '/zh/solution-program',
       '/zh/framework-django',
     ]
   },

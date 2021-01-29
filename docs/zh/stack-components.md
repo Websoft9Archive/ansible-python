@@ -13,10 +13,11 @@ Python 预装包包含 Python 运行所需一序列支撑软件（简称为“�
 除了 Python3 之外，预装包中还安装了 Virtualenv, pip 等常用的 Python 工具。
 
 Python 应用目录： */data/wwwroot*  
-Python 安装目录： */data/python*  
+Python 框架目录： */data/apps*  
+Python 源码目录： */usr/lib/python*  
 Python 日志目录： */data/logs/python*  
 
-> 操作系统官方默认自带 Python2 
+> 操作系统一般默认自带 Python2，部分操作系统默认也安装了 Python3
 
 ### uWSGI
 
