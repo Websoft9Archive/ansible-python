@@ -108,6 +108,39 @@ sound/                          Top-level package
 
 通过 import sound.effects.echo 的方式加载包中的模块。
 
+## 包构建与分发
+
+下面讲述如何构建一个包（[延伸阅读](https://zhuanlan.zhihu.com/p/128020789)），并发布到 [pip 官网](https://pypi.org)。  
+
+1. 在项目中新建两个文件：setup.py, MANIFEST.in
+2. setup.py 文件中存放下面的示例代码
+   ```
+   from setuptools import setup, find_packages
+   setup(
+    name = "demo",
+    version = "0.1",
+    packages = find_packages(),
+   )
+   ```
+3. MANIFEST.in 存放项目所需的静态资源（非必须）
+   ```
+   recursive-include font *
+   recursive-include Images *
+   recursive-include sounds *
+   ```
+4. 在当前目录下输入打包命令，打包成功，在目录下生成 dist文件夹 
+   ```
+   python setup.py sdist
+   ```
+5. pip 官网上[注册账号](https://pypi.org/account/register/)，运行下面的命令发布
+   ```
+   pip install twine
+   twine upload dist/*
+   ```
+
+发布包的难点在于构建包，也就是编写 setup.py 文件。另外，也可用编写 Makefile 来给 Python 打包。  
+
+与安装打包相关的技术包括：setuptools（distutils改进版）, pip（asyInstall改进版），Python 二进制包格式（.egg，.whl）
 
 ## 虚拟环境
 
