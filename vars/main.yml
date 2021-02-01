@@ -1,12 +1,8 @@
 w9panel_webs: "nginx" 
 w9panel_set_infrastructure: "Python runtime" 
-w9panel_set_apps: "{{python_applications_select}}"
-
+w9panel_set_apps: "django"
 
 nginx_certbot: True
-nginx_appname: "{{python_applications_select}}"
-
-python_applications: "{{python_applications_select}}"
 
 # MySQL 版本和默认密码
 mysql_version: "5.7"       

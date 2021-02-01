@@ -40,12 +40,13 @@
 
     python_version: "{{python_select[python_selection]}}"
    
-    python_applications_select: "{{apps_select[apps_selection]}}"
+    python_applications: "{{apps_select[apps_selection]}}"
 
     python_mysql_install: "{{ (python_applications_select == 'django') | ternary(True,False) }}"
+    python_9panel_install: "{{ (python_applications_select == '9panel') | ternary(True,False) }}"
 
   pre_tasks:
-    - debug: var=python_applications_select
+    - debug: var=python_applications
     - set_fact:
         python_applications: []
       when: not apps_select[apps_selection] 
@@ -57,8 +58,8 @@
   - { role: role_python , tags: "role_python"}
   - { role: role_mysql , tags: "role_mysql",when python_mysql_install == "True"}
   - { role: role_redis , tags: "role_redis"}
-  - { role: role_9panel , tags: "9panel"}
+  - { role: role_9panel , tags: "9panel",when python_9panel_install == "True"}
   - { role: role_docker , tags: "role_docker",when python_mysql_install == "True"} 
-  - { role: role_init , tags: "role_init"} 
+  - { role: role_init , tags: "role_init",when python_mysql_install == "True"} 
   - { role: role_preend , tags: "role_preend"} 
   - { role: role_end , tags: "role_end"} 
