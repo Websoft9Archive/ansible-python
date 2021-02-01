@@ -12,12 +12,12 @@
       prompt: "\nPlease choose the number for Python version [ 1/2/3] \n\n
       1: python3.6\n 
       2: python3.7(only for ubuntu)\n
-      3: python3.8(only for ubuntu)\n"
+      3: python3.8\n"
       private: no
       default: 1
 
     - name: 'apps_selection'
-      prompt: "\nDo you want to install python application? [ 1/2/3/4] \n\n
+      prompt: "\nDo you want to install python application? [ 1/2/3] \n\n
       0: Not install any application\n
       1: ansible\n
       2: Django\n
