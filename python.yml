@@ -37,17 +37,10 @@
       '2': 'django'
       '3': 'tensorflow'
 
-    apps_port:
-       '0': ''
-       '1': ''
-       '2': '8000'
-       '3': '6006'
 
     python_version: "{{python_select[python_selection]}}"
    
     python_applications_select: "{{apps_select[apps_selection]}}"
-
-    python_applications_port: "{{apps_port[apps_selection]}}"
 
     python_mysql_install: "{{ (python_applications_select == 'django') | ternary(True,False) }}"
 
@@ -65,7 +58,7 @@
   - { role: role_mysql , tags: "role_mysql",when python_mysql_install == "True"}
   - { role: role_redis , tags: "role_redis"}
   - { role: role_9panel , tags: "9panel"}
-  - { role: role_docker , tags: "role_docker"} 
+  - { role: role_docker , tags: "role_docker",when python_mysql_install == "True"} 
   - { role: role_init , tags: "role_init"} 
   - { role: role_preend , tags: "role_preend"} 
   - { role: role_end , tags: "role_end"} 
