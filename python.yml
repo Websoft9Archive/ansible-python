@@ -39,17 +39,16 @@
 
 
     python_version: "{{python_select[python_selection]}}"
-   
     python_applications: "{{apps_select[apps_selection]}}"
-
-    python_mysql_install: "{{ (python_applications == 'django') | ternary(True,False) }}"
-    python_9panel_install: "{{ (python_applications == 'django') | ternary(True,False) }}"
 
   pre_tasks:
     - debug: var=python_applications
     - set_fact:
         python_applications: []
       when: not apps_select[apps_selection] 
+
+    python_mysql_install: "{{ (python_applications == 'django') | ternary(True,False) }}"
+    python_9panel_install: "{{ (python_applications == 'django') | ternary(True,False) }}"
 
   roles:
   - { role: role_common , tags: "role_common"}
