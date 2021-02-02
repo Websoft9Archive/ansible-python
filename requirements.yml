@@ -2,13 +2,9 @@
 
 - src: http://github.com/websoft9dev/role_cloud
 
-- src: http://github.com/websoft9dev/role_python
-
 - src: http://github.com/websoft9dev/role_nginx
 
-- src: http://github.com/websoft9dev/role_uwsgi
-
-- src: http://github.com/websoft9dev/role_python_apps
+- src: http://github.com/websoft9dev/role_python
 
 - src: http://github.com/websoft9dev/role_9panel
 

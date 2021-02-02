@@ -1,16 +1,8 @@
 w9panel_webs: "nginx" 
 w9panel_set_infrastructure: "Python runtime" 
-w9panel_set_apps: 
-  - Django
+w9panel_set_apps: "django"
 
-# link node.js
-nginx_reverse_proxy_port: "8000"
 nginx_certbot: True
-nginx_appname: "django"
-nginx_vhost_mode: "reverse"
-
-# install nodejs applications
-python_apps_name: django
 
 # MySQL 版本和默认密码
 mysql_version: "5.7"       
@@ -23,8 +15,8 @@ docker_applications:
 # install certbot
 preend_certbot: True
 
-# 初始化 MySQL 与 MongoDB root密码
+# 初始化 MySQL 
 init_db: 
-    mysql:
-      user: root
-      password: "123456"  
+  mysql:
+    admin: root
+    password: "123456"
