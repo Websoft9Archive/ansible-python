@@ -47,6 +47,7 @@
 
   pre_tasks:
     - debug: var=python_applications
+    - debug: var=python_mysql_install
     - set_fact:
         python_applications: []
       when: not apps_select[apps_selection] 
