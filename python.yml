@@ -9,7 +9,7 @@
   
   vars_prompt:
     - name: 'python_selection'
-      prompt: "\nPlease choose the number for Python version [ 1/2/3] \n\n
+      prompt: "Please choose the number for Python version [ 1/2/3]\n 
       1: python3.6\n 
       2: python3.7(only for ubuntu)\n
       3: python3.8\n"
@@ -17,49 +17,47 @@
       default: 1
 
     - name: 'apps_selection'
-      prompt: "\nDo you want to install python application? [ 1/2/3] \n\n
+      prompt: "Do you want to install python application? [ 1/2/3] \n
       0: Not install any application\n
       1: ansible\n
       2: Django\n
       3: tensorflow\n"
       private: no
       default: 0
-      
+
   vars:
     python_select:
-      '1': '3.6'
-      '2': '3.7'
-      '3': '3.8'
+      '1': "3.6"
+      '2': "3.7"
+      '3': "3.8"
 
     apps_select:
       '0': False
-      '1': 'ansible'
-      '2': 'django'
-      '3': 'tensorflow'
-
+      '1': "ansible"
+      '2': "django"
+      '3': "tensorflow"
 
     python_version: "{{python_select[python_selection]}}"
-   
     python_applications: "{{apps_select[apps_selection]}}"
-
-    python_mysql_install: "{{ (python_applications_select == 'django') | ternary(True,False) }}"
-    python_9panel_install: "{{ (python_applications_select == '9panel') | ternary(True,False) }}"
+    python_mysql_install: "{{ (python_applications == 'django') | ternary(True,False) }}"
+    python_web_install: "{{ (python_applications == 'django') | ternary(True,False) }}"
 
   pre_tasks:
-    - debug: var=python_applications
-    - set_fact:
+   - set_fact:
         python_applications: []
-      when: not apps_select[apps_selection] 
+     when: not apps_select[apps_selection]
+
+   - debug: var=python_version
+   - debug: var=python_applications
 
   roles:
   - { role: role_common , tags: "role_common"}
   - { role: role_cloud, tags: "role_cloud"} 
-  - { role: role_nginx , tags: "role_nginx"}
+  - { role: role_nginx , tags: "role_nginx",when: python_web_install}
   - { role: role_python , tags: "role_python"}
-  - { role: role_mysql , tags: "role_mysql",when python_mysql_install == "True"}
-  - { role: role_redis , tags: "role_redis"}
-  - { role: role_9panel , tags: "9panel",when python_9panel_install == "True"}
-  - { role: role_docker , tags: "role_docker",when python_mysql_install == "True"} 
-  - { role: role_init , tags: "role_init",when python_mysql_install == "True"} 
+  - { role: role_mysql , tags: "role_mysql",when: python_mysql_install}
+  - { role: role_9panel , tags: "9panel",when: python_web_install} 
+  - { role: role_docker , tags: "role_docker",when: python_mysql_install} 
+  - { role: role_init , tags: "role_init",when: python_mysql_install} 
   - { role: role_preend , tags: "role_preend"} 
   - { role: role_end , tags: "role_end"} 
