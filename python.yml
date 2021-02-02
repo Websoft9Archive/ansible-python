@@ -54,7 +54,7 @@
   roles:
   - { role: role_common , tags: "role_common"}
   - { role: role_cloud, tags: "role_cloud"} 
-  - { role: role_nginx , tags: "role_nginx",when python_mysql_install == "True"}
+  - { role: role_nginx , tags: "role_nginx",when python_9panel_install == "True"}
   - { role: role_python , tags: "role_python"}
   - { role: role_mysql , tags: "role_mysql",when python_mysql_install == "True"}
   - { role: role_redis , tags: "role_redis"}
