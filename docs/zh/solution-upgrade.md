@@ -24,4 +24,4 @@ yum update -y --skip-broken
 
 ## Python升级
 
-详情参考官方升级文档：[Upgrading Python](https://www.python.com/upgrade.html)
+对 Python 来说，大版本之间有较大的差异，官方表示没有升级的方案，只能安装更高的版本，可以实现多版本共存。
