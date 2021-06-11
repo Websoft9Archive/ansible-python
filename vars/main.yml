@@ -1,7 +1,7 @@
 w9panel_webs: "nginx" 
 w9panel_set_infrastructure: "Python runtime" 
 w9panel_set_apps: 
-  - "Example"
+  - "django"
 
 nginx_certbot: True
 nginx_reverse_proxy_port: "8000"
