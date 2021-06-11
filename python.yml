@@ -28,6 +28,7 @@
       - django
     python_version: "{{python_select[python_selection]}}"
 
+pre_tasks:
    - debug: var=python_version
 
   roles:
