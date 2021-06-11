@@ -4,6 +4,8 @@
 
 - src: http://github.com/websoft9/role_nginx
 
+- src: http://github.com/websoft9/role_sqlite
+
 - src: http://github.com/websoft9/role_python
 
 - src: http://github.com/websoft9/role_9panel
