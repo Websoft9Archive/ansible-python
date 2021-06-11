@@ -18,11 +18,10 @@
       default: 1
 
     - name: 'apps_selection'
-      prompt: "Do you want to install python application? [ 1/2/3] \n
+      prompt: "Do you want to install python application? [ 0/1/2] \n
       0: Not install any application\n
       1: ansible\n
-      2: Django\n
-      3: tensorflow\n"
+      2: tensorflow\n"
       private: no
       default: 0
 
@@ -36,8 +35,7 @@
     apps_select:
       '0': False
       '1': "ansible"
-      '2': "django"
-      '3': "tensorflow"
+      '2': "tensorflow"
 
     python_version: "{{python_select[python_selection]}}"
     python_applications: "{{apps_select[apps_selection]}}"
@@ -48,6 +46,8 @@
    - set_fact:
         python_applications: []
      when: not apps_select[apps_selection]
+   - set_fact:
+        python_applications: "{{ python_applications.append(['django']) }}{{ python_applications }}"
 
    - debug: var=python_version
    - debug: var=python_applications
