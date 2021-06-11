@@ -54,6 +54,7 @@
   - { role: role_common , tags: "role_common"}
   - { role: role_cloud, tags: "role_cloud"} 
   - { role: role_nginx , tags: "role_nginx",when: python_web_install}
+  - { role: role_sqlite , tags: "role_sqlite",when: django in python_applications}
   - { role: role_python , tags: "role_python"}
   - { role: role_mysql , tags: "role_mysql",when: python_mysql_install}
   - { role: role_9panel , tags: "9panel",when: python_web_install} 
