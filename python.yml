@@ -24,8 +24,6 @@
       '3': "3.8"
       '4': "3.9"
 
-    python_applications:
-      - django
     python_version: "{{python_select[python_selection]}}"
 
   pre_tasks:
