@@ -17,14 +17,6 @@
       private: no
       default: 1
 
-    - name: 'apps_selection'
-      prompt: "Do you want to install python application? [ 0/1/2] \n
-      0: Not install any application\n
-      1: ansible\n
-      2: tensorflow\n"
-      private: no
-      default: 0
-
   vars:
     python_select:
       '1': "3.6"
@@ -32,35 +24,21 @@
       '3': "3.8"
       '4': "3.9"
 
-    apps_select:
-      '0': False
-      '1': "ansible"
-      '2': "tensorflow"
-
+    python_applications:
+      - django
     python_version: "{{python_select[python_selection]}}"
-    python_applications: "{{apps_select[apps_selection]}}"
-    python_mysql_install: "{{ (python_applications == 'django') | ternary(True,False) }}"
-    python_web_install: "{{ (python_applications == 'django') | ternary(True,False) }}"
-
-  pre_tasks:
-   - set_fact:
-        python_applications: []
-     when: not apps_select[apps_selection]
-   - set_fact:
-        python_applications: "{{ python_applications.append(['django']) }}{{ python_applications }}"
 
    - debug: var=python_version
-   - debug: var=python_applications
 
   roles:
   - { role: role_common , tags: "role_common"}
   - { role: role_cloud, tags: "role_cloud"} 
-  - { role: role_nginx , tags: "role_nginx",when: python_web_install}
+  - { role: role_nginx , tags: "role_nginx"}
   - { role: role_sqlite , tags: "role_sqlite"}
   - { role: role_python , tags: "role_python"}
-  - { role: role_mysql , tags: "role_mysql",when: python_mysql_install}
-  - { role: role_9panel , tags: "9panel",when: python_web_install} 
-  - { role: role_docker , tags: "role_docker",when: python_mysql_install} 
-  - { role: role_init , tags: "role_init",when: python_mysql_install} 
+  - { role: role_mysql , tags: "role_mysql"}
+  - { role: role_9panel , tags: "9panel"} 
+  - { role: role_docker , tags: "role_docker"} 
+  - { role: role_init , tags: "role_init"} 
   - { role: role_preend , tags: "role_preend"} 
   - { role: role_end , tags: "role_end"} 
