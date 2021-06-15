@@ -1,16 +1,5 @@
 # CHANGELOG
 
-## To do
-
-1. 支持更多Python应用
-2. Ubuntu支持
-
-## Logs
-
-### Bug Fixes
-
-* 2020-04-02  
-
-### Features
-
-* * 2020-04-02  完成模块化修正
+## Release Python v3.8-1 2021-06-15
+### Fixes and Enhancements
+- Init Python runtime #3
