@@ -14,18 +14,35 @@
       2: python3.7(only for ubuntu)\n
       3: python3.8\n"
       private: no
-      default: 1
+      default: 3
+
+    - name: 'mysql_selection'
+      prompt: "\nPlease choose the number for MySQL version [ 0/1/2/3/4] \n\n
+      0: Don't install MySQL\n
+      1: MySQL5.5(only for CentOS7.x, AmazonLinux)\n
+      2: MySQL5.6(only for CentOS7.x, AmazonLinux, Ubuntu16.04 )\n
+      3: MySQL5.7\n
+      4: MySQL8.0\n"
+      private: no
+      default: 3
 
   vars:
     python_select:
       '1': "3.6"
       '2': "3.7"
       '3': "3.8"
-
     python_version: "{{python_select[python_selection]}}"
 
+    mysql_select:
+      '0': ''
+      '1': '5.5'
+      '2': '5.6'
+      '3': '5.7'
+      '4': '8.0'
+    mysql_version: "{{mysql_select[mysql_selection]}}" 
+
   pre_tasks:
-   - debug: var=python_version
+   - debug: Python will be installed, include  Python{{python_version}}, MySQL{{mysql_version}}
 
   roles:
   - { role: role_common , tags: "role_common"}
