@@ -6,8 +6,7 @@ w9panel_set_apps:
 nginx_certbot: True
 nginx_reverse_proxy_port: "8000"
 
-# MySQL 版本和默认密码
-mysql_version: "5.7"       
+# MySQL 版本和默认密码      
 mysql_root_password: "123456"
 mysql_remote: True
 
