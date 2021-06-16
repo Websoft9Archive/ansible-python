@@ -6,7 +6,7 @@ home: false
 
 This documentation is provided by [Websoft9](https://www.websoft9.com/). It can help users to acquire skills of Python Deployment, Installation, Configuration, HTTPS, SMTP, Backup, Upgrade, Connect Instance and more.
 
-[Python](https://python-server.apache.org/) is the most widely deployed open source message broker. With more than 35,000 production deployments of Python world-wide at small startups and large enterprises, Python is the most popular open source message broker.
+[Python](https://www.python.org/) is the most widely deployed open source message broker. With more than 35,000 production deployments of Python world-wide at small startups and large enterprises, Python is the most popular open source message broker.
 
 ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/python-gui-websoft9.png)
 
