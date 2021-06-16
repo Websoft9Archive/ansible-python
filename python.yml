@@ -18,7 +18,6 @@
 
     - name: 'mysql_selection'
       prompt: "\nPlease choose the number for MySQL version [ 0/1/2/3/4] \n\n
-      0: Don't install MySQL\n
       1: MySQL5.5(only for CentOS7.x, AmazonLinux)\n
       2: MySQL5.6(only for CentOS7.x, AmazonLinux, Ubuntu16.04 )\n
       3: MySQL5.7\n
@@ -34,7 +33,6 @@
     python_version: "{{python_select[python_selection]}}"
 
     mysql_select:
-      '0': ''
       '1': '5.5'
       '2': '5.6'
       '3': '5.7'
