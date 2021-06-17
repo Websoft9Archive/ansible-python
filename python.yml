@@ -19,6 +19,7 @@
 
     - name: 'mysql_selection'
       prompt: "\nPlease choose the number for MySQL version [ 0/1/2/3/4] \n\n
+      OS support mysql version: {{mysql_support_version}}\n\n
       1: MySQL5.5\n
       2: MySQL5.6\n
       3: MySQL5.7\n
