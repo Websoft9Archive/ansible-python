@@ -42,7 +42,7 @@
 
   pre_tasks:
    - fail: 
-       msg: '{{ansible_distribution}}' OS not support '{{python_version}}'
+       msg: '{{ansible_distribution}} OS not support {{python_version}}'
      when: python_version not in python_support_version[ansible_distribution]
 
    - debug: Python will be installed, include  Python{{python_version}}, MySQL{{mysql_version}}
