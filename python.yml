@@ -9,8 +9,8 @@
   
   vars_prompt:
     - name: 'python_selection'
-      prompt: "Please choose the number for Python version [ 1/2/3]\n
-      {{python_support_version |to_nice_yaml}}\n 
+      prompt: "Please choose the number for Python version [ 1/2/3]\n\n
+      OS support python version: {{python_support_meta}}\n\n 
       1: python3.7\n 
       2: python3.8\n
       3: python3.9\n"
@@ -42,8 +42,8 @@
 
   pre_tasks:
    - fail: 
-       msg: '{{ansible_distribution}} OS not support {{python_version}}'
-     when: python_version not in python_support_version[ansible_distribution]
+       msg: "{{ansible_distribution}} not support python{{python_version}},Please select a supported version!"
+     when: python_version not in python_support_meta[ansible_distribution]
 
    - debug: Python will be installed, include  Python{{python_version}}, MySQL{{mysql_version}}
 
