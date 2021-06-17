@@ -18,7 +18,7 @@
 
 ## 组件
 
-包含的核心组件为：Python,Django,Nginx,MySQL（版本可选）,Redis等  
+包含的核心组件为：Python，Django，Nginx，MySQL（版本可选），9Panel，sqlite  
 
 更多请见[参数表](/docs/zh/stack-components.md)
 
