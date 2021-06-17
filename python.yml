@@ -15,7 +15,7 @@
       2: python3.8\n
       3: python3.9\n"
       private: no
-      default: 3
+      default: 2
 
     - name: 'mysql_selection'
       prompt: "\nPlease choose the number for MySQL version [ 1/2/3/4] \n\n
