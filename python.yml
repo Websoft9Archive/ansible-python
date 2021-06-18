@@ -9,17 +9,19 @@
   
   vars_prompt:
     - name: 'python_selection'
-      prompt: "Please choose the number for Python version [ 1/2/3]\n 
-      1: python3.6\n 
-      2: python3.7(only for ubuntu)\n
-      3: python3.8\n"
+      prompt: "Please choose the number for Python version [ 1/2/3]\n\n
+      OS support python version: {{python_support_version}}\n\n 
+      1: python3.7\n 
+      2: python3.8\n
+      3: python3.9\n"
       private: no
-      default: 3
+      default: 2
 
     - name: 'mysql_selection'
-      prompt: "\nPlease choose the number for MySQL version [ 0/1/2/3/4] \n\n
-      1: MySQL5.5(only for CentOS7.x, AmazonLinux)\n
-      2: MySQL5.6(only for CentOS7.x, AmazonLinux, Ubuntu16.04 )\n
+      prompt: "\nPlease choose the number for MySQL version [ 1/2/3/4] \n\n
+      OS support mysql version:\n{{mysql_support_version |to_yaml}}\n\n
+      1: MySQL5.5\n
+      2: MySQL5.6\n
       3: MySQL5.7\n
       4: MySQL8.0\n"
       private: no
@@ -27,9 +29,9 @@
 
   vars:
     python_select:
-      '1': "3.6"
-      '2': "3.7"
-      '3': "3.8"
+      '1': "3.7"
+      '2': "3.8"
+      '3': "3.9"
     python_version: "{{python_select[python_selection]}}"
 
     mysql_select:
@@ -40,6 +42,12 @@
     mysql_version: "{{mysql_select[mysql_selection]}}" 
 
   pre_tasks:
+   - fail: msg="{{ansible_distribution}} not support python{{python_version}},Please select a supported version!"
+     when: python_version not in python_support_version[ansible_distribution]
+
+   - fail: msg="{{ansible_distribution}} not support mysql{{mysql_version}},Please select a supported version!"
+     when: mysql_version not in mysql_support_version[ansible_os_family][ansible_distribution_major_version]
+
    - debug: Python will be installed, include  Python{{python_version}}, MySQL{{mysql_version}}
 
   roles:
