@@ -4,6 +4,18 @@ sidebarDepth: 3
 
 # 架构
 
+## 关于
+
+[Python](https://www.python.org/) 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。Python 的语法具有非常好的可读性，是典型的**简单主义思想**的语言，是初级程序员非常喜爱的一个入门语言。同时，Python拥有完整的生态，有海量的开源库可用，从简单的文字处理到web开发，再到科学计算甚至是深度学习，都占有一席之地。
+
+
+- **Python 是一种解释型语言：** 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。
+- **Python 是交互式语言：** 这意味着，您可以在一个 Python 提示符 **>>>** 后直接执行代码。
+- **Python 是面向对象语言:** 这意味着Python支持面向对象的风格或代码封装在对象的编
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/python-gui-websoft9.png)
+
+
 ## 安装
 
 Python 广受欢迎，故大部分 Linux 发行版，默认都安装了 Python。只需在 Linux 命令上输入命令 `python`，就会进入它的交互式界面。
