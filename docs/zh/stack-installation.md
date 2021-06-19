@@ -1,6 +1,6 @@
 # 初始化安装
 
-在云服务器上部署 Python 预装包之后，请参考下面的步骤快速入门。
+在云服务器上部署 Python 预装包之后，请参考下面的步骤快速入门。  
 
 ## 准备
 
@@ -37,7 +37,7 @@ Python Runtime 内置 MySQL 及可视化数据库管理工具 `phpMyadmin` ，[�
 
 ## 安装网站
 
-Python Runtime 可以用来部署多个 Python 网站，[马上开始吧](/zh/solution-deployment.md)
+Python Runtime 可以用来部署多个 Python 网站，[马上开始吧](/zh/solution-addapps.md)
 
 ## 常见问题
 

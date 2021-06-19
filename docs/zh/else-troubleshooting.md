@@ -25,9 +25,14 @@ systemctl status python
 journalctl -u python
 ```
 
-#### 在Chrome下修改密码后报错？
+#### 执行 django 启动命令报错？
 
-这个并不是服务器端的问题，只要更新浏览器即可。
+错误信息：You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
 
-![chrome error of Python](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/python-chromeerror-websoft9.png)
+解决方案：运行下面的命令后再启动项目  
+
+```
+python manage.py migrate
+```
 
