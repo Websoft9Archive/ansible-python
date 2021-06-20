@@ -1,4 +1,4 @@
-# 安装网站
+# Deploy Ruby Web application
 
 在 Python Runtime 环境上安装不同的网站有一定的差异，但总体上是遵循如下几个步骤的：
 
@@ -9,7 +9,7 @@
 
 > 务必牢记以上几个步骤，不要一开始就落入技术陷阱中
 
-## 部署
+## Deployment
 
 下面通过安装一个开源 Python 框架 [Django](https://www.djangoproject.com/) 作为范例，帮助用户理解安装的方法。   
 
@@ -55,7 +55,7 @@
 5. 本地浏览器访问：*http://服务器公网IP:8001* 便可以访问 Django 界面
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/django-installss-websoft9.png)
 
-## 架构优化
+## Architecture optimization
 
 上面的安装可知，虽然可以通过 runserver 访问 Django，但 runserver 只是 Django 框架中用于测试的 Web 服务器，根本无法满足生产应用。
 
@@ -71,7 +71,7 @@
 
 下面我们分别介绍如何配置这两个组件：  
 
-### 配置 uWsgi
+### Integrate uWsgi
 
 1. 隔离环境中安装 uWsgi
    ```
@@ -105,7 +105,7 @@
 
 > 架构逻辑：**客户-uWsgi-Django**。同时，配置过程中把握好 django.ini 中的路径不要出错。
 
-### 配置 Nginx
+### Integrate Nginx
 
 Nginx 用作前端 Web 服务器，有着高性能
 
@@ -186,7 +186,7 @@ Nginx 用作前端 Web 服务器，有着高性能
 2. 重启 Nginx 服务后，查看新安装的网站
 
 
-## 常见问题
+## FAQ
 
 #### 是否可以在不同版本的 Python 安装网站？
 

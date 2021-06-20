@@ -18,6 +18,8 @@
    >>>
    ```
 
+   > 部分系统中内置 Python2，输入命令 `python` 会进入 Python2 的交互式计界面
+
 2. 使用本地浏览器访问网址：*http://域名* 或 *http://服务器公网IP*，可以看到 Django 界面
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/django-installss-websoft9.png)
 

@@ -2,10 +2,6 @@
 
 Each of the following solutions has been proved to be effective and we hope it can give you help.
 
-## Configuration 
-
-Refer to the official docs: https://www.python.com/configure.html
-
 ## Binding Domain
 
 The precondition for binding a domain is that Python can accessed by domain name.
@@ -24,24 +20,3 @@ Steps for binding Python domain are as follows:
    ...
    }
    ```
-## Resetting Password
-
-There are two main measures to reset password.
-
-### Changing password
-
-Take the steps below:
-
-1. log in the Python backend, open 【Manage】>【Staff】 and find the user account, of which you want to change password;
-
-2. start to change the password.
-
-### Forgot Password
-
-Try to retrieve your password through e-mail when forgot it.
-
-Follow the steps below:
-
-1. complete [SMTP setting](/solution-smtp.md);
-
-2. open

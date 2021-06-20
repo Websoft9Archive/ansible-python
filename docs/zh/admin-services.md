@@ -4,6 +4,15 @@
 
 ### Django
 
+#### On Linux
+
+```shell
+systemctl start django
+systemctl stop django
+systemctl restart django
+systemctl status django
+```
+
 #### On Windows
 
 服务随操作系统自动启动，如果手工修改配置参数后，需要重新启停服务，有两种方法。
@@ -33,24 +42,6 @@ sudo systemctl restart mysql
 sudo systemctl status mysql
 ```
 
-### Redis
-
-```shell
-systemctl start redis
-systemctl stop redis
-systemctl restart redis
-systemctl status redis
-```
-
-### Redis
-
-```shell
-systemctl start redis
-systemctl stop redis
-systemctl restart redis
-systemctl status redis
-```
-
 ### phpMyAdmin
 
 ```shell
@@ -58,6 +49,24 @@ sudo docker start phpmyadmin
 sudo docker stop phpmyadmin
 sudo docker restart phpmyadmin
 sudo docker stats pgadmin
+```
+
+### MongoDB
+
+```shell
+sudo systemctl start mongo
+sudo systemctl stop mongo
+sudo systemctl restart mongo
+sudo systemctl status mongo
+```
+
+### adminMongo
+
+```shell
+sudo docker start adminmongo
+sudo docker stop adminmongo
+sudo docker restart adminmongo
+sudo docker stats adminmongo
 ```
 
 ### Docker
@@ -82,4 +91,13 @@ sudo docker-compose up -d
 sudo docker-compose start
 sudo docker-compose stop
 sudo docker-compose restart
+```
+
+### Redis
+
+```shell
+systemctl start redis
+systemctl stop redis
+systemctl restart redis
+systemctl status redis
 ```

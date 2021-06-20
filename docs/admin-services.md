@@ -2,16 +2,22 @@
 
 These commands are required when you use the Python of Websoft9.
 
-### Python
+### Django
 
 ```shell
-sudo systemctl start python-server
-sudo systemctl stop python-server
-sudo systemctl restart python-server
-sudo systemctl status python-server
+systemctl start django
+systemctl stop django
+systemctl restart django
+systemctl status django
+```
 
-# you can use this debug mode if Python service can't run
-python-server console
+### Nginx
+
+```shell
+systemctl start nginx
+systemctl stop nginx
+systemctl restart nginx
+systemctl status nginx
 ```
 
 ### MySQL
@@ -23,37 +29,58 @@ sudo systemctl restart mysql
 sudo systemctl status mysql
 ```
 
-### Redis
+### phpMyAdmin
 
 ```shell
-sudo systemctl start redis
-sudo systemctl stop redis
-sudo systemctl restart redis
-sudo systemctl status redis
+sudo docker start phpmyadmin
+sudo docker stop phpmyadmin
+sudo docker restart phpmyadmin
+sudo docker stats pgadmin
+```
+
+### MongoDB
+
+```shell
+sudo systemctl start mongo
+sudo systemctl stop mongo
+sudo systemctl restart mongo
+sudo systemctl status mongo
+```
+
+### adminMongo
+
+```shell
+sudo docker start adminmongo
+sudo docker stop adminmongo
+sudo docker restart adminmongo
+sudo docker stats adminmongo
 ```
 
 ### Docker
+
 ```shell
 sudo systemctl start docker
-sudo systemctl stop docker
 sudo systemctl restart docker
+sudo systemctl stop docker
 sudo systemctl status docker
 ```
 
-### phpMyAdmin on Docker
-```shell
-sudo docker inspect phpmyadmin
-sudo docker start phpmyadmin
-sudo docker restart phpmyadmin
-sudo docker stop phpmyadmin
-sudo docker rm phpmyadmin
+### Docker-compose
+
+```
+sudo docker-compose up
+sudo docker-compose up -d
+
+sudo docker-compose start
+sudo docker-compose stop
+sudo docker-compose restart
 ```
 
-### ONLYOFFICE Document Server on Docker
+### Redis
+
 ```shell
-sudo docker inspect onlyofficedocumentserver
-sudo docker start onlyofficedocumentserver
-sudo docker restart onlyofficedocumentserver
-sudo docker stop onlyofficedocumentserver
-sudo docker rm onlyofficedocumentserver
+systemctl start redis
+systemctl stop redis
+systemctl restart redis
+systemctl status redis
 ```

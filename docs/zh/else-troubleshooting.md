@@ -36,3 +36,13 @@ Run 'python manage.py migrate' to apply them.
 python manage.py migrate
 ```
 
+#### `pip install uwgsi` 报错？
+
+错误信息如下：  
+```
+ERROR: Command errored out with exit status 1:
+     command: /usr/bin/python3 -u -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-v02o0o80/uwsgi_6afc0c5595704f599e64e6aa41047052/setup.py'"'"'; __file__='"'"'/tmp/pip-install-v02o0o80/uwsgi_6afc0c5595704f599e64e6aa41047052/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-oovzq0ap/install-record.txt --single-version-externally-managed --compile --install-headers /usr/local/include/python3.6m/uwsgi
+```
+
+错误原因：  
+解决方案：  

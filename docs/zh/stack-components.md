@@ -19,16 +19,12 @@ Python 日志目录： */data/logs/python*
 
 > 操作系统一般默认自带 Python2，部分操作系统默认也安装了 Python3
 
-### uWSGI
-
-uWSGI 配置文件： */etc/uwsgi.ini*  
-uWSGI 目录： */etc/uwsgi.d*  
-
 ### Django
 
 #### Linux
 
 Django 安装目录： */data/wwwroot/django*  
+Django systemctl 名称： *django.service*  
 
 #### Windows
 
@@ -44,7 +40,7 @@ Nginx 主配置文件： */etc/nginx/nginx.conf*
 Nginx 日志文件： */var/log/nginx*  
 Nginx 伪静态规则目录： */etc/nginx/conf.d/rewrite*
 
-#### MySQL
+### MySQL
 
 MySQL 安装路径: */usr/local/mysql*  
 MySQL 数据文件 */data/mysql*  
@@ -59,11 +55,30 @@ phpMyAdmin 是一款可视化 MySQL 管理工具，在本项目中它基于 Dock
 phpMyAdmin directory：*/data/apps/phpmyadmin*  
 phpMyAdmin docker compose file：*/data/apps/phpmyadmin/docker-compose.yml* 
 
+### MongoDB
+
+MongoDB 数据目录: */var/lib/mongodb*  
+MongoDB 配置文件: */etc/mongod.conf*  
+MongoDB 日志文件: */var/log/mongodb*  
+
+### adminMongo
+
+adminMongo 是一款可视化 MongoDB 管理工具，采用 Docker 安装
+
+Docker 根目录: */var/lib/docker*  
+Docker 镜像目录: */var/lib/docker/image*  
+
 ### Docker
 
 Docker 根目录: */var/lib/docker*  
 Docker 镜像目录: */var/lib/docker/image*   
 Docker daemon.json 文件：默认没有创建，请到 */etc/docker* 目录下根据需要自行创建   
+
+### Redis
+
+Redis 配置文件： */etc/redis.conf*  
+Redis 数据目录： */var/lib/redis*  
+Redis 日志文件： */var/log/redis/redis.log*
 
 ## 端口号
 
@@ -76,6 +91,10 @@ Docker daemon.json 文件：默认没有创建，请到 */etc/docker* 目录下�
 | TCP | 8000 | 通过 HTTP 直接访问 Django 演示页面 | 可选 |
 | TCP | 80 | 通过 HTTP 直接访问 Python 应用 | 必选 |
 | TCP | 443 | 通过 HTTPS 直接访问 Python 应用 | 可选 |
+| TCP | 3306 | MySQL 远程访问端口 | 可选 |
+| TCP | 9090 | 通过 HTTP 访问 phpMyAdmin | 可选 |
+| TCP | 27017 | MongoDB 远程访问端口 | 可选 |
+| TCP | 9091 | 通过 HTTP 访问 adminMongo | 可选 |
 
 ## 版本号
 
@@ -100,4 +119,10 @@ docker -v
 
 # MySQL version
 mysql -V
+
+# MongoDB version
+mongodb -V
+
+# Django version
+/data/wwwroot/django/bin/pip show django
 ```
