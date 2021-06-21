@@ -20,7 +20,6 @@
     - name: 'mysql_selection'
       prompt: "\nPlease choose the number for MySQL version [ 1/2/3/4] \n\n
       OS support mysql version:\n{{mysql_support_version |to_yaml}}\n\n
-      0: Don't install MySQL\n
       1: MySQL5.5\n
       2: MySQL5.6\n
       3: MySQL5.7\n
