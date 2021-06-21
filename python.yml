@@ -20,12 +20,26 @@
     - name: 'mysql_selection'
       prompt: "\nPlease choose the number for MySQL version [ 1/2/3/4] \n\n
       OS support mysql version:\n{{mysql_support_version |to_yaml}}\n\n
+      0: Don't install MySQL\n
       1: MySQL5.5\n
       2: MySQL5.6\n
       3: MySQL5.7\n
       4: MySQL8.0\n"
       private: no
       default: 3
+    
+    - name: 'mongodb_selection'
+      prompt: "\nPlease choose the number for MongoDB version [ 1/2/3/4...] \n\n
+      0: Don't install MongoDB\n
+      1: MongoDB3.0(support Ubuntu16 and Redhat7 family)\n
+      2: MongoDB3.2(support Ubuntu16 and Redhat7 family)\n
+      3: MongoDB3.4(support Ubuntu16 and Redhat7 family)\n
+      4: MongoDB3.6(support Ubuntu16 ubuntu18.04 and Redhat7 family)\n
+      5: MongoDB4.0(support ubuntu18.04 and Redhat7 family)\n
+      6: MongoDB4.2(support ubuntu18.04 ubuntu20.04 and Redhat7 family)\n
+      7: MongoDB4.4(support ubuntu18.04 ubuntu20.04 and Redhat7 family)\n"
+      private: no
+      default: 4
 
   vars:
     python_select:
@@ -35,11 +49,23 @@
     python_version: "{{python_select[python_selection]}}"
 
     mysql_select:
+      '0': ''
       '1': '5.5'
       '2': '5.6'
       '3': '5.7'
       '4': '8.0'
     mysql_version: "{{mysql_select[mysql_selection]}}" 
+
+    mongodb_select:
+      '0': ''
+      '1': '3.0'
+      '2': '3.2'
+      '3': '3.4'
+      '4': '3.6'
+      '5': '4.0'
+      '6': '4.2'
+      '7': '4.4'
+    mongodb_version: "{{mongodb_select[mongodb_selection]}}" 
 
   pre_tasks:
    - fail: msg="{{ansible_distribution}} not support python{{python_version}},Please select a supported version!"
@@ -56,7 +82,8 @@
   - { role: role_nginx , tags: "role_nginx"}
   - { role: role_sqlite , tags: "role_sqlite"}
   - { role: role_python , tags: "role_python"}
-  - { role: role_mysql , tags: "role_mysql"}
+  - { role: role_mysql , tags: "role_mysql", when: mysql_version != ''}
+  - { role: role_mongodb , tags: "role_mongodb", when: mongodb_version != ''}
   - { role: role_9panel , tags: "9panel"} 
   - { role: role_docker , tags: "role_docker"} 
   - { role: role_init , tags: "role_init"} 
