@@ -6,8 +6,15 @@ The Python deployment package contains a sequence of software (referred to as "c
 
 ### Python
 
-Python installation directory:  */data/python*  
-Python logs directory:  */data/logs/python*  
+Python site directory: */data/wwwroot*  
+Python framework directory: */data/wwwroot*  
+Python source code directory： */usr/lib/python*  
+Python logs directory: */data/logs/python*  
+
+### Django
+
+Django installation directory: */data/wwwroot/django*  
+Django systemd name: django  
 
 ### Nginx
 
@@ -24,18 +31,37 @@ MySQL configuration file: */etc/my.cnf*
 
 MySQL Web Management refer to [MySQL Management](/admin-mysql.md)
 
-### Docker
-
-Docker root directory: */var/lib/docker*  
-Docker image directory: */var/lib/docker/image*   
-Docker daemon.json: please create it when you need and save to to the directory */etc/docker*   
-
 ###  phpMyAdmin
 
 phpMyAdmin is a visual MySQL management tool, is installed based on docker.  
 
 phpMyAdmin directory：*/data/apps/phpmyadmin*  
 phpMyAdmin docker compose file：*/data/apps/phpmyadmin/docker-compose.yml* 
+
+### MongoDB
+
+MongoDB data directory: */var/lib/mongodb*  
+MongoDB Configuration File:  */etc/mongod.conf*  
+MongoDB logs File:  */var/log/mongodb*  
+
+### adminMongo
+
+adminMongo is a visual MongoDB management tool, is installed based on docker.  
+
+Docker root directory: */var/lib/docker*  
+Docker image directory: */var/lib/docker/image*  
+
+### Docker
+
+Docker root directory: */var/lib/docker*  
+Docker image directory: */var/lib/docker/image*   
+Docker daemon.json: please create it when you need and save to to the directory */etc/docker*   
+
+### Redis
+
+Redis configuration file: */etc/redis.conf*  
+Redis data directory: */var/lib/redis*  
+Redis logs file: */var/log/redis/redis.log*
 
 ## Ports
 
@@ -47,13 +73,13 @@ The following are the ports you may use:
 
 | Name | Number | Use |  Necessity |
 | --- | --- | --- | --- |
-| TCP | 80 | HTTP to access Python | Required |
-| TCP | 443 | HTTPS to access Python | Optional |
+| TCP | 80 | HTTP to access Django by Nginx | Required |
+| TCP | 443 | HTTPS to access Django Nginx | Optional |
+| TCP | 80 | HTTP to access Django directly | Required |
 | TCP | 3306 | Remote to access MySQL | Optional |
-| TCP | 9003 | Use port to access Python | Optional |
-| TCP | 9002 | Python Document Server on Docker | Optional |
-| TCP | 9090 | phpMyAdmin on Docker | Optional |
-
+| TCP | 9090 | HTTP to access phpMyAdmin | Optional |
+| TCP | 27017 |Remote to access MongoDB | Optional |
+| TCP | 9091 | HTTP to access adminMongo | Optional |
 
 ## Version
 
@@ -78,4 +104,10 @@ docker -v
 
 # MySQL version
 mysql -V
+
+# MongoDB version
+mongodb -V
+
+# Django version
+/data/wwwroot/django/bin/pip show django
 ```

@@ -15,9 +15,10 @@ module.exports = [
         title: 'Best Practices',
         collapsable: false,
         children: [
-          '/solution-smtp',
+          '/solution-addapps',
+          '/framework-django',
+          '/solution-arch',
           '/solution-https',
-          '/solution-cli',
           '/solution-backup',
           '/solution-upgrade',
           '/solution-more',
@@ -30,6 +31,8 @@ module.exports = [
         children: [
           '/admin-services',
           '/admin-mysql',
+          '/admin-mongodb',
+          ['https://support.websoft9.com/docs/uwsgi','uWSGI'],
           ['https://support.websoft9.com/docs/linux/lang-nginx.html','Nginx'],
           ['https://support.websoft9.com/docs/linux/admin-practices.html','Linux'],
         ]

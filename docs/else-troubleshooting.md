@@ -15,9 +15,9 @@ Insufficient disk space and memory, incorrect configuration file may cause the f
 It is recommended to first check through the command.
 
 ```shell
-# restart Python service
-systemctl status python
-journalctl -u python
+# restart django service
+systemctl status django
+journalctl -u django
 
 # view disk space
 df -lh
@@ -25,9 +25,3 @@ df -lh
 # view memory rate
 free -lh
 ```
-
-#### Error in Chrome when modify password?
-
-This error has nothing to do with Python server. Just upgrade you local Chrome to solve it.
-
-![chrome error of Python](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/python-chromeerror-websoft9.png)

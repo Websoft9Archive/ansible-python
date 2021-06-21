@@ -13,20 +13,12 @@ module.exports = [
   },
 
   {
-    title: '架构与应用',
+    title: '最佳实践',
     collapsable: false,
     children: [
-      '/zh/solution-arch',
-      '/zh/solution-program',
+      '/zh/solution-addapps',
       '/zh/framework-django',
-    ]
-  },
-
-  {
-    title: '系统管理',
-    collapsable: false,
-    children: [
-      '/zh/solution-pip',
+      '/zh/solution-arch',
       '/zh/solution-https',
       '/zh/solution-backup',
       '/zh/solution-upgrade',
@@ -40,7 +32,8 @@ module.exports = [
     children: [
       '/zh/admin-services',
       '/zh/admin-mysql',
-      '/zh/admin-uwsgi',
+      '/zh/admin-mongodb',
+      ['https://support.websoft9.com/docs/uwsgi/zh','uWSGI'],
       ['https://support.websoft9.com/docs/linux/zh/nginx-erlang.html','Nginx'],
       ['https://support.websoft9.com/docs/linux/zh/admin-practices.html','Linux'],
     ]

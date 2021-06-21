@@ -6,7 +6,7 @@ Python Runtime 中默认已经安装并启用了一个 [Django](https://github.c
 
 下面我们采用先易后难的方式，讲解用户可能需要的 Django 几种应用场景。
 
-## 上传 Django 应用
+## Upload Django source code
 
 基于环境中默认的 Django 框架，用户可以通过**上传自己的代码**的方式来部署应用。
 
@@ -25,7 +25,7 @@ Python Runtime 中默认已经安装并启用了一个 [Django](https://github.c
    python manage.py runserver 0.0.0.0:9099
    ```
 
-## 创建 Django 应用
+## Create Django APP by CLI
 
 基于环境中默认的 Django 框架，用户通过**命令行**创建应用。下面详细说明：
 
@@ -55,6 +55,6 @@ Python Runtime 中默认已经安装并启用了一个 [Django](https://github.c
 
 > 以上步骤可见，一个 Django 框架（隔离环境）下可以创建多个应用项目。
 
-## 安装 Django 框架
+## Install new Django Framework
 
 如果用户向自行安装一个新的 Django 框架，请参考上一个章节 [《安装网站》](/zh/solution-addapps.md)

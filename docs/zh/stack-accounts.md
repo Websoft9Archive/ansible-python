@@ -6,7 +6,12 @@
 
 下面列出可能需要用到的几组账号密码：
 
-## MySQL
+## MySQL/MariaDB
+
+* 管理员账号：*`root`*
+* 管理员密码：存储在您的服务器中的文件中 */credentials/password.txt*  
+
+## MongoDB
 
 * 管理员账号：*`root`*
 * 管理员密码：存储在您的服务器中的文件中 */credentials/password.txt*  

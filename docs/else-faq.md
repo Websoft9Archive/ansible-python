@@ -14,14 +14,9 @@ The use of Python 3 is highly preferred over Python 2. Consider upgrading your a
 In a CPython interpreter, bytecode is fed to PVM (Python Virtual Machine) which is responsible for running your code.
 ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/python/python-interpreter-websoft9.png)
 
+#### If there is no domain name, can I deploy Python APPS?
 
-#### Can I reset password of Python by command?
-
-Yes, e.g `pythonctl change_password  admin newpassword`
-
-#### If there is no domain name, can I deploy Python?
-
-Yes, access Python by *http://Server's Internet IP:8161*.
+Yes, access Python APPS by *http://Server's Internet IP:port*.
 
 #### What is the password for the database root user?
 
