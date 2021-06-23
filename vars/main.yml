@@ -33,5 +33,3 @@ init_db:
     admin: root
     users: ["django"]
     password: "123456"
-    config_paths: 
-      - 
