@@ -27,7 +27,6 @@ mysql_users:
    priv: 'django.*:ALL'
 
 # 初始化 MySQL 
-
 init_db: 
   mysql:
     admin: root
