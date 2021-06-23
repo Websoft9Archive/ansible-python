@@ -33,5 +33,5 @@ init_db:
     admin: root
     users: ["django"]
     password: "123456"
-
-sqlite_version: "3.9"
+    config_path: 
+      - /data/apps/django/django_project/django_project/settings.py
