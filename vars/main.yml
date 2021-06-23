@@ -19,8 +19,19 @@ docker_applications:
 # install certbot
 preend_certbot: True
 
+mysql_databases:
+ - name: django
+ 
+mysql_users:
+ - name: django
+   priv: 'django.*:ALL'
+
 # 初始化 MySQL 
+
 init_db: 
   mysql:
     admin: root
+    users: ["django"]
     password: "123456"
+    config_paths: 
+      - 

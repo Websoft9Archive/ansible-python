@@ -1,0 +1,5 @@
+- name: Use pip3 install PyMySQL
+  pip: 
+    name: pymysql
+    virtualenv: /data/apps/django
+    executable: pip3
