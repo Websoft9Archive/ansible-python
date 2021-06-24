@@ -13,27 +13,19 @@
 - name: Remove sqlite3 configure
   blockinfile:
     path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
-    block: >
-      DATABASES = {
-  ​      'default': {
+    state: absent
+    block: |
   ​      'ENGINE': 'django.db.backends.sqlite3',
   ​      'NAME': BASE_DIR / 'db.sqlite3',
-  ​      }
-      }
-    state: absent
-
+    
 - name: Adding MySQL as the default database
   blockinfile:
     path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
-    insertafter: "#.*#databases"
-    block: >
-      DATABASES = {
-  ​      'default': {
+    insertafter: "'default'"
+    block: |
   ​        'ENGINE': 'django.db.backends.mysql',
   ​        'NAME': 'django',
   ​        'USER': 'django',
   ​        'PASSWORD': '{{mysql_root_password}}',
   ​        'HOST': '127.0.0.1',
   ​        'PORT': '3306',
-  ​      }
-      }
