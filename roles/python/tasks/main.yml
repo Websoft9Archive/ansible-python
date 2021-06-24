@@ -14,7 +14,7 @@
   blockinfile:
     path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
     state: absent
-    block: |
+    block: >
   ​      'ENGINE': 'django.db.backends.sqlite3',
   ​      'NAME': BASE_DIR / 'db.sqlite3',
     
@@ -22,7 +22,7 @@
   blockinfile:
     path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
     insertafter: "'default'"
-    block: |
+    block: >
   ​        'ENGINE': 'django.db.backends.mysql',
   ​        'NAME': 'django',
   ​        'USER': 'django',
