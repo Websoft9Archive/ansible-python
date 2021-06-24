@@ -13,7 +13,7 @@
 - name: Remove sqlite3 configure
   blockinfile:
     path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
-    block: |
+    block: >
       DATABASES = {
   ​      'default': {
   ​      'ENGINE': 'django.db.backends.sqlite3',
@@ -26,7 +26,7 @@
   blockinfile:
     path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
     insertafter: "#.*#databases"
-    block: |
+    block: >
       DATABASES = {
   ​      'default': {
   ​        'ENGINE': 'django.db.backends.mysql',
