@@ -11,21 +11,21 @@
       pymysql.install_as_MySQLdb()
 
 - name: Remove sqlite3 configure
-  blockinfile:
-    path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
-    state: absent
-    block: >
-  ​      'ENGINE': 'django.db.backends.sqlite3',
-  ​      'NAME': BASE_DIR / 'db.sqlite3',
-    
+  shell: sed -i '/DATABASES = {/,+9d' "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
+  
 - name: Adding MySQL as the default database
-  blockinfile:
-    path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
-    insertafter: "'default'"
-    block: >
-  ​        'ENGINE': 'django.db.backends.mysql',
-  ​        'NAME': 'django',
-  ​        'USER': 'django',
-  ​        'PASSWORD': '{{mysql_root_password}}',
-  ​        'HOST': '127.0.0.1',
-  ​        'PORT': '3306',
+  shell: 
+    cmd: |
+      cat <<EOF |sudo tee -a "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
+      DATABASES = {
+          'default': {
+              'ENGINE': 'django.db.backends.mysql',
+              'NAME': 'django',
+              'USER': 'django',
+              'PASSWORD': '{{mysql_root_password}}',
+              'HOST': '127.0.0.1',
+              'PORT': '3306',
+          }
+      }
+      EOF
+
