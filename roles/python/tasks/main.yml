@@ -3,16 +3,16 @@
     name: pymysql
     executable: pip3
 
-- name: Insert mysql connection
+- name: Remove sqlite3 configure
+  shell: sed -i '/DATABASES = {/,+9d' /data/apps/django/django_project/django_project/settings.py
+  
+- name: Import pymysql module
   blockinfile:
     path: /data/apps/django/django_project/django_project/__init__.py
     block: |
       import pymysql
       pymysql.install_as_MySQLdb()
 
-- name: Remove sqlite3 configure
-  shell: sed -i '/DATABASES = {/,+9d' /data/apps/django/django_project/django_project/settings.py
-  
 - name: Adding MySQL as the default database
   shell: 
     cmd: |
