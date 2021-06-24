@@ -5,18 +5,18 @@
 
 - name: Insert mysql connection
   blockinfile:
-    path: "{{python_venv_path}}/{{python_applications}}/django_project/django_project/__init__.py"
+    path: "{{python_venv_path}}/django/django_project/django_project/__init__.py"
     block: |
       import pymysql
       pymysql.install_as_MySQLdb()
 
 - name: Remove sqlite3 configure
-  shell: sed -i '/DATABASES = {/,+9d' "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
+  shell: sed -i '/DATABASES = {/,+9d' "{{python_venv_path}}/django/django_project/django_project/settings.py"
   
 - name: Adding MySQL as the default database
   shell: 
     cmd: |
-      cat <<EOF |sudo tee -a "{{python_venv_path}}/{{python_applications}}/django_project/django_project/settings.py"
+      cat <<EOF |sudo tee -a "{{python_venv_path}}/django/django_project/django_project/settings.py"
       DATABASES = {
           'default': {
               'ENGINE': 'django.db.backends.mysql',
