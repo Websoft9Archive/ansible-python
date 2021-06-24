@@ -63,7 +63,7 @@
       '5': '4.0'
       '6': '4.2'
       '7': '4.4'
-    mongodb_version: "{{mongodb_select[mongodb_selection]}}" 
+    mongodb_version: "{{mongodb_select[mongodb_selection]}}"
 
   pre_tasks:
    - fail: msg="{{ansible_distribution}} not support python{{python_version}},Please select a supported version!"
@@ -79,8 +79,9 @@
   - { role: role_cloud, tags: "role_cloud"} 
   - { role: role_nginx , tags: "role_nginx"}
   - { role: role_sqlite , tags: "role_sqlite"}
-  - { role: role_python , tags: "role_python"}
   - { role: role_mysql , tags: "role_mysql"}
+  - { role: role_python , tags: "role_python"}
+  - { role: python , tags: "python"}
   - { role: role_mongodb , tags: "role_mongodb", when: mongodb_version != ''}
   - { role: role_9panel , tags: "9panel"} 
   - { role: role_docker , tags: "role_docker"} 
