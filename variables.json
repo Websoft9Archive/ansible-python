@@ -9,10 +9,10 @@
   "requirements_disk": "20",
   "requirements_swap": "2",
   "requirements_configure_url": "https://www.djangoproject.com/download/",
-  "components": "Python, jango, Nginx, MySQL（版本可选）, 9Panel, sqlite, Docker, phpadmin on Docker",
+  "components": "Python, jango, Nginx, MySQL(version can select), 9Panel, sqlite, Docker, phpadmin on Docker",
   "install_way": {
-    "en": "Package isntallation | Compile isntallation for source | Isntallation for download binaries files ",
-    "zh": "包安装 | 下载源码编译安装 | 下载可执行二进制包解压安装"
+    "en": "Package isntallation",
+    "zh": "包安装"
   },
   "install_url": "https://www.djangoproject.com/download/"
 }
