@@ -14,5 +14,5 @@
     "en": "Package isntallation",
     "zh": "包安装"
   },
-  "install_url": "https://www.djangoproject.com/download/"
+  "install_url": "https://github.com/Websoft9/ansible-python/blob/main/python.yml"
 }
