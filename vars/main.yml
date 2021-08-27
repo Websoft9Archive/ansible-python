@@ -15,7 +15,8 @@ python_applications:
   
 docker_applications: 
   - phpmyadmin
-
+  - adminmongo
+  
 # install certbot
 preend_certbot: True
 
@@ -34,3 +35,6 @@ init_db:
     password: "123456"
     config_path: 
       - /data/apps/django/django_project/django_project/settings.py
+   mongodb:
+      admin: root
+      password: "123456"
