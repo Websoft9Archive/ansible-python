@@ -73,21 +73,8 @@
       '11': '5.0'
     mongodb_version: "{{mongodb_select[mongodb_selection]}}"
 
-  pre_tasks:
-   - fail: msg="{{ansible_distribution}} not support python{{python_version}},Please select a supported version!"
-     when: python_version not in python_support_version[ansible_distribution]
-
-   - fail: msg="{{ansible_distribution}} not support mysql{{mysql_version}},Please select a supported version!"
-     when: mysql_version not in mysql_support_version[ansible_os_family][ansible_distribution_major_version]
-
-   - debug: Python will be installed, include  Python{{python_version}}, MySQL{{mysql_version}}
-
   roles:
   - { role: role_common , tags: "role_common"}
-  - { role: role_cloud, tags: "role_cloud"} 
-  - { role: role_nginx , tags: "role_nginx"}
-  - { role: role_sqlite , tags: "role_sqlite"}
-  - { role: role_mysql , tags: "role_mysql"}
   - { role: role_python , tags: "role_python"}
   - { role: python , tags: "python"}
   - { role: role_mongodb , tags: "role_mongodb", when: mongodb_version != ''}
